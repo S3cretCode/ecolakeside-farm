@@ -1,0 +1,497 @@
+/* ==========================================================================
+   EcoLakeside Farm Initiative — Presentation & Exhibition Styles
+   Design Language: Editorial Typography with Rich Natural Hues & Responsive Motion
+   Fonts: Playfair Display (Serif) & Inter (Sans-serif)
+   Palette: Forest Emerald, Lake Azure, Harvest Gold, and Warm Obsidian
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --obsidian: #080d0a;
+  --obsidian-surface: rgba(14, 22, 17, 0.92);
+  --obsidian-card: rgba(18, 29, 23, 0.82);
+  --emerald: #10b981;
+  --emerald-light: #34d399;
+  --emerald-glow: rgba(16, 185, 129, 0.25);
+  --lake: #0284c7;
+  --lake-light: #38bdf8;
+  --lake-glow: rgba(2, 132, 199, 0.25);
+  --gold: #c5a059;
+  --gold-light: #eab308;
+  --gold-glow: rgba(197, 160, 89, 0.25);
+  --ivory: #f5f0e8;
+  --silver: #94a3b8;
+  --silver-light: #cbd5e1;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-emerald: rgba(52, 211, 153, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base font-size set to clean standard 16px */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ivory);
+  background-color: var(--obsidian);
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 15px; /* Proportional scale for phones */
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 16.5px; /* Spacious, comfortable editorial scale for desktop */
+  }
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.75;
+  font-weight: 400; /* Regular weight for crisp, legible reading */
+  color: var(--ivory);
+  background: var(--obsidian);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.14) 0px, transparent 45%),
+    radial-gradient(at 100% 15%, rgba(2, 132, 199, 0.15) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(197, 160, 89, 0.1) 0px, transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Wide Content Container for Desktop (Replaces narrow 1280px constraints) */
+.content-wide {
+  width: 100%;
+  max-width: 1540px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .content-wide {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-wide {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .content-wide {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.text-emerald {
+  color: var(--emerald-light);
+}
+
+.text-lake {
+  color: var(--lake-light);
+}
+
+.text-gold-gradient {
+  background-image: linear-gradient(135deg, #c5a059, #e0c283, #a8863e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-emerald-gradient {
+  background-image: linear-gradient(135deg, #34d399, #10b981, #059669);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Elegant Accent Lines */
+.gold-line {
+  width: 75px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 22px auto;
+  transition: width 0.4s ease;
+}
+
+.gold-line:hover {
+  width: 110px;
+}
+
+.emerald-line-left {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--emerald-light), transparent);
+  margin: 18px 0;
+}
+
+/* Glassmorphism Cards & Responsive Hover States */
+.curator-card {
+  background: var(--obsidian-surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) {
+  .curator-card:hover {
+    border-color: var(--border-emerald);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(16, 185, 129, 0.15);
+  }
+
+  .curator-card.border-lake-hover:hover {
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.18);
+  }
+
+  .curator-card.border-gold-hover:hover {
+    border-color: rgba(197, 160, 89, 0.45);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(197, 160, 89, 0.18);
+  }
+}
+
+/* 3D Map Perspective Stage */
+.map-perspective-stage {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  touch-action: pan-y; /* Prevent touch gestures from being intercepted on mobile */
+}
+
+.map-card-3d {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+/* Interactive Map Markers & Touch Targets */
+.pin-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 20;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  .pin-marker:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+.pin-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  background: rgba(8, 14, 10, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 7px;
+  color: var(--ivory);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .pin-badge {
+    padding: 4px 8px;
+    font-size: 0.65rem;
+    gap: 5px;
+  }
+}
+
+.pin-badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* SVG Interactive Vector Mask Overlays */
+.map-svg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.map-svg-region {
+  pointer-events: auto;
+  cursor: pointer;
+  fill: rgba(16, 185, 129, 0.08);
+  stroke: rgba(52, 211, 153, 0.45);
+  stroke-width: 1.8;
+  stroke-dasharray: 6 3;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.map-svg-region:hover, .map-svg-region.active-region {
+  fill: rgba(16, 185, 129, 0.26);
+  stroke: #34d399;
+  stroke-width: 3.2;
+  stroke-dasharray: none;
+  filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.65));
+}
+
+.map-svg-region.potato-region {
+  fill: rgba(245, 158, 11, 0.08);
+  stroke: rgba(245, 158, 11, 0.45);
+}
+.map-svg-region.potato-region:hover, .map-svg-region.potato-region.active-region {
+  fill: rgba(245, 158, 11, 0.26);
+  stroke: #f59e0b;
+  stroke-width: 3.2;
+  stroke-dasharray: none;
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.65));
+}
+
+.map-svg-region.water-region {
+  fill: rgba(14, 165, 233, 0.1);
+  stroke: rgba(56, 189, 248, 0.5);
+}
+.map-svg-region.water-region:hover, .map-svg-region.water-region.active-region {
+  fill: rgba(14, 165, 233, 0.28);
+  stroke: #38bdf8;
+  stroke-width: 3.2;
+  stroke-dasharray: none;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.65));
+}
+
+.map-svg-region.wetland-region {
+  fill: rgba(20, 184, 166, 0.1);
+  stroke: rgba(45, 212, 191, 0.5);
+}
+.map-svg-region.wetland-region:hover, .map-svg-region.wetland-region.active-region {
+  fill: rgba(20, 184, 166, 0.28);
+  stroke: #2dd4bf;
+  stroke-width: 3.2;
+  stroke-dasharray: none;
+  filter: drop-shadow(0 0 10px rgba(45, 212, 191, 0.65));
+}
+
+/* Presenter HUD: High-z-index Floating Controller */
+.pitch-hud {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  width: calc(100% - 24px);
+  max-width: 540px;
+  background: rgba(10, 16, 12, 0.96);
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), 0 0 24px rgba(16, 185, 129, 0.22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: none;
+  transition: all 0.25s ease;
+}
+
+.pitch-hud.hud-active {
+  display: flex !important;
+}
+
+.hud-progress-track {
+  position: relative;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.hud-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #34d399 50%, #38bdf8 100%);
+  border-radius: 9999px;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Timeline components */
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  border-left: 3px solid rgba(52, 211, 153, 0.3);
+  transition: all 0.25s ease;
+  border-radius: 0 8px 8px 0;
+}
+
+@media (hover: hover) {
+  .timeline-item:hover {
+    border-left-color: var(--emerald-light);
+    background: rgba(16, 185, 129, 0.06);
+    transform: translateX(4px);
+  }
+}
+
+.timeline-item.lake-step {
+  border-left-color: rgba(56, 189, 248, 0.3);
+}
+@media (hover: hover) {
+  .timeline-item.lake-step:hover {
+    border-left-color: var(--lake-light);
+    background: rgba(14, 165, 233, 0.06);
+  }
+}
+
+/* Smooth Horizontal Scroll without ugly bars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Scrollbar for Desktop */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: #1a2922;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--emerald-light);
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Full-Page Mobile Navigation Menu (Artifacts Project Inspired)
+   ========================================================================== */
+#mobile-fullscreen-menu {
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  background: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(2, 132, 199, 0.12) 0%, transparent 45%),
+              #070c09;
+}
+
+#mobile-fullscreen-menu.menu-closed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px) scale(0.99);
+}
+
+#mobile-fullscreen-menu.menu-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.mobile-nav-link:hover, .mobile-nav-link:active {
+  padding-left: 8px;
+  border-bottom-color: rgba(52, 211, 153, 0.35);
+}
+
+.mobile-nav-link .nav-num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: #34d399;
+  flex-shrink: 0;
+}
+
+.mobile-nav-link .nav-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  color: var(--ivory);
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-link:hover .nav-title {
+  color: #6ee7b7;
+}
+
+.mobile-nav-link .nav-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* Page Section Spacing - Generous Breathing Room Between Content Chapters */
+.page-chapter {
+  position: relative;
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
+}
+
+@media (min-width: 640px) {
+  .page-chapter {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-chapter {
+    padding-top: 9.5rem;
+    padding-bottom: 9.5rem;
+  }
+}
+

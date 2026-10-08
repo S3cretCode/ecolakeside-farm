@@ -1,0 +1,19 @@
+{
+  "name": "ecolakeside-farm-initiative",
+  "version": "1.0.0",
+  "description": "EcoLakeside Farm Initiative (Team 4) - Sustainable Agriculture Summit 5-Minute Case Study Pitch",
+  "scripts": {
+    "start": "serve .",
+    "dev": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "sustainable-agriculture",
+    "manitoba",
+    "environmental-farm-plan",
+    "4r-nutrient-stewardship",
+    "nutrients-for-life",
+    "lakeside-farm"
+  ],
+  "author": "Team 4 - EcoLakeside Farm Initiative",
+  "license": "MIT"
+}
